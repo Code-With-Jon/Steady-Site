@@ -109,6 +109,21 @@ class App extends React.Component {
 		else if (newMessage.includes('hey')) {
 			addResponseMessage('Hey there! ... What can we help you with?')
 		}
+		else if (newMessage.includes('Thank you')) {
+			addResponseMessage('My pleasure! Is there anything else I can assist you with?')
+		}
+		else if (newMessage.includes('Thanks')) {
+			addResponseMessage('My pleasure! Is there anything else I can assist you with?')
+		}
+		else if (newMessage.includes('No thanks')) {
+			addResponseMessage('Alright, have a great day!')
+		}
+		else if (newMessage.includes('goodbye')) {
+			addResponseMessage('Take care!')
+		}
+		else if (newMessage.includes('bye')) {
+			addResponseMessage('Take care!')
+		}
 		else if (newMessage.includes('to whom it may')) {
 			addResponseMessage('What can we help you with?')
 		}
