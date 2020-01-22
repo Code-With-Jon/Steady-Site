@@ -7,20 +7,29 @@ import SignUpForm from "../signup/form";
 import LogInForm from "../login/loginForm";
 import Features from "./Features/features";
 import ScreenShots from "./screenshots/screenShots";
+import Team from "./Team/team";
+import Contact from '../contact/contactForm'
+import Footer from "../footer/footer";
 
 export default class MainHeader extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			navSelection: this.props.navSelection
+			navSelection: this.props.navSelection,
+			message: ''
 		};
+	}
+
+
+	updateMessage = (msg) => {
+		this.setState({ message: msg });
 	}
 
 	render() {
 		return (
 			<>
 				{/* Modal */}
-				<section>
+				<section id="Home">
 					{/* <h1>Sign Up</h1>
                 <input type="button" value="Open" onClick={() => this.openModal()} /> */}
 					<Modal
@@ -29,13 +38,13 @@ export default class MainHeader extends React.Component {
 						height="300"
 						effect="fadeInUp"
 						onClickAway={() => this.props.closeModal()}
-					>
+					>z
 						<div>
 							{this.props.navSelection === "Sign Up" ? (
-								<SignUpForm />
+								<SignUpForm handleSignupOrLogin={this.props.handleSignupOrLogin} closeModal={this.props.closeModal} updateMessage={this.updateMessage} />
 							) : (
-								<LogInForm />
-							)}
+									<LogInForm handleSignupOrLogin={this.props.handleSignupOrLogin} closeModal={this.props.closeModal} />
+								)}
 
 							<button onClick={() => this.props.closeModal()}>Close</button>
 						</div>
@@ -44,8 +53,8 @@ export default class MainHeader extends React.Component {
 
 				<Row align="center">
 					<Col size={8}>
-						<h1 style={{ color: "white" }}>Stop Swiping. Get Serious</h1>
-						<StayUpdated />
+						<h1 style={{ color: "white" }} >Stop Swiping. Get Serious</h1>
+						<StayUpdated currentSub={this.props.currentSub} handleAddSubscriber={this.props.handleAddSubscriber} />
 						{/* Apple Store Logo */}
 						<a href="/">
 							<img
@@ -74,7 +83,7 @@ export default class MainHeader extends React.Component {
 					<Col size={4}>
 						<img
 							src="../../../assets/PicApp.png"
-							// style={{ marginLeft: "10%" }}
+						// style={{ marginLeft: "10%" }}
 						></img>
 					</Col>
 				</Row>
@@ -89,6 +98,9 @@ export default class MainHeader extends React.Component {
 				<CoupleBikeAnimation />
 				<Features />
 				<ScreenShots />
+				<Team />
+				<Contact />
+				<Footer />
 			</>
 		);
 	}

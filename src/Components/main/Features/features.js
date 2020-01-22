@@ -10,13 +10,13 @@ export default class Features extends React.Component {
 			<div
 				className="features-body"
 				id="Features"
-				style={{ backgroundColor: "white", paddingTop: "2px" }}
+				style={{ backgroundColor: "#f6f6f6", paddingTop: "2px" }}
 			>
 				<div
 					className="feature-title"
 					style={{ height: "50px", width: "100%" }}
 				>
-					<h4>Features</h4>
+					<h4 style={{ color: 'rebeccapurple', fontSize: 'x-large' }}>Features</h4>
 				</div>
 				<div
 					style={{
@@ -49,21 +49,21 @@ const features = [
 	{
 		title: "Availilbilty",
 		image: <AvaililbiltyAnimation />,
-		text: "This is Text"
+		text: "Enter your availability"
 	},
 	{
 		title: "Compatibility",
 		image: <CompatabilityAnimation />,
-		text: "This is Text"
+		text: "Match based on compatibility"
 	},
 	{
 		title: "Date Logistics",
 		image: <PlanDateAnimation />,
-		text: "This is Text"
+		text: "We take care of the details"
 	},
 	{
 		title: "Security",
 		image: <SecurityAnimation />,
-		text: "This is Text"
+		text: "Data security is a top priority"
 	}
 ];

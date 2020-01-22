@@ -12,14 +12,18 @@ export default class Navigation extends React.Component {
 		};
 	}
 
-	handleSignUpClick() {
+	handleSignUpClick = () => {
 		this.setState({ modalVisible: true });
 		this.props.openSignUpModal();
 	}
 
-	handleLogInClick() {
+	handleLogInClick = () => {
 		this.setState({ modalVisible: true });
 		this.props.openLogInModal();
+	}
+
+	handleLogOutClick = () => {
+		this.props.handleLogout()
 	}
 
 	render() {
@@ -85,31 +89,34 @@ export default class Navigation extends React.Component {
 							marginRight: "10px"
 						}}
 					>
-						<Link className="nav-link" to="/">
+						<Link smooth className="nav-link" to="#Home">
 							Home
 						</Link>
 						<Link smooth className="nav-link" to="#Features">
 							Features
 						</Link>
-						<Link className="nav-link" to="/">
+						<Link smooth className="nav-link" to="#Screenshots">
 							Screenshots
 						</Link>
-						<Link className="nav-link" to="/">
+						<Link smooth className="nav-link" to="#Team">
 							Team
 						</Link>
-						<Link className="nav-link" to="/">
+						<Link smooth className="nav-link" to="#Contact" style={{ marginRight: '25px' }}>
 							Contact
 						</Link>
 					</div>
 					<div style={{ marginRight: "30px" }}>
 						<Menu>
-							<Dropdown text="Account" pointing className="link item">
+							<Dropdown text={this.props.user ? this.props.user.name : "Account"} pointing className="link item">
 								<Dropdown.Menu>
 									<Dropdown.Item onClick={() => this.handleSignUpClick()}>
 										Sign Up
 									</Dropdown.Item>
 									<Dropdown.Item onClick={() => this.handleLogInClick()}>
 										Log In
+									</Dropdown.Item>
+									<Dropdown.Item onClick={() => this.handleLogOutClick()}>
+										Log Out
 									</Dropdown.Item>
 								</Dropdown.Menu>
 							</Dropdown>

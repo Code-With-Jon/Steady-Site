@@ -16,6 +16,7 @@
 	pointer-events: none;
 }
 
+
 @media (prefers-reduced-motion: no-preference) {
 	.App-logo {
 		animation: App-logo-spin infinite 20s linear;
@@ -80,7 +81,7 @@ a:hover {
 	height: 100%;
 	border-radius: 23px;
 	width: 70%;
-	margin-left: 14%;
+	margin-left: 18%;
 	padding: 10px 0 10px 0;
 	box-shadow: 2px 3px 3px #282c34;
 }
@@ -119,3 +120,12 @@ a:hover {
 .nav-link {
 	color: white;
 }
+
+.vl {
+	border-left: 6px solid green;
+	height: 500px;
+	position: absolute;
+	left: 50%;
+	margin-left: -3px;
+	top: 0;
+  }

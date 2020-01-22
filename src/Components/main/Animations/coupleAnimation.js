@@ -2,6 +2,9 @@ import React from "react";
 import Lottie from "react-lottie";
 import CoupleAnimation from "./JSONFiles/coupleAnimation.json";
 import { Link } from "react-router-dom";
+import { Row, Col, Container } from "react-reflex-grid";
+import Game from "../Game/game.js";
+
 
 export default class CoupleBikeAnimation extends React.Component {
 	render() {
@@ -40,7 +43,7 @@ export default class CoupleBikeAnimation extends React.Component {
 						background: "white",
 						marginTop: "-5px",
 						marginLeft: "auto",
-						width: "70%"
+						width: "100%"
 						// borderBottom: "4px solid rebeccapurple"
 					}}
 				>
@@ -48,18 +51,28 @@ export default class CoupleBikeAnimation extends React.Component {
 						style={{
 							color: "rebeccapurple",
 							width: "100%",
-							textAlign: "left",
-							paddingLeft: "12vw"
+							textAlign: "center",
 						}}
 					>
 						Play Compatibility Game
 					</h1>
-					<Lottie
+					<h4 style={{fontSize: 'large'}}>See How Compatibile You Are With Other Users</h4>
+					<Row>
+						<Col size={9}>
+						<div>
+							<Game />
+						</div>
+						</Col>
+						<Col size={3}>
+						<Lottie
 						options={defaultOptions}
 						height={400}
 						width={400}
 						style={{ margin: "", marginLeft: "auto" }}
 					/>
+						</Col>
+					</Row>
+					
 				</div>
 			</div>
 		);

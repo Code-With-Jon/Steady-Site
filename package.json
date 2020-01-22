@@ -6,8 +6,16 @@
 		"@testing-library/jest-dom": "^4.2.4",
 		"@testing-library/react": "^9.4.0",
 		"@testing-library/user-event": "^7.2.1",
+		"bcrypt": "^3.0.7",
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"jsonwebtoken": "^8.5.1",
+		"mongoose": "^5.8.9",
+		"morgan": "^1.9.1",
 		"react": "^16.12.0",
 		"react-awesome-modal": "^2.0.5",
+		"react-awesome-slider": "^3.1.2",
+		"react-chat-widget": "^2.1.5",
 		"react-dom": "^16.12.0",
 		"react-lottie": "^1.2.3",
 		"react-reflex-grid": "^2.10.0",
@@ -15,7 +23,8 @@
 		"react-router-hash-link": "^1.2.2",
 		"react-scripts": "3.3.0",
 		"semantic-ui-css": "^2.4.1",
-		"semantic-ui-react": "^0.88.2"
+		"semantic-ui-react": "^0.88.2",
+		"serve-favicon": "^2.5.0"
 	},
 	"scripts": {
 		"start": "react-scripts start",
@@ -36,7 +45,7 @@
 			"last 1 chrome version",
 			"last 1 firefox version",
 			"last 1 safari version"
-		],
-		"proxy": "http://localhost:3001"
-	}
+		]
+	},
+	"proxy": "http://localhost:3001"
 }
