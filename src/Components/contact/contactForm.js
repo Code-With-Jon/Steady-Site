@@ -1,6 +1,6 @@
 import React from 'react'
 import { Row, Col, Container } from "react-reflex-grid";
-
+import emailjs from 'emailjs-com';
 
 export default class ContactForm extends React.Component {
     state = {
@@ -8,24 +8,55 @@ export default class ContactForm extends React.Component {
         email: '',
         subject: '',
         message: '',
+        formSubmitted: false
     }
-    handleSubmit(e) {
-        // e.preventDefault()
-        // const { name, email, subject, message } = this.state
-        // let templateParams = {
-        //     from_name: email,
-        //     to_name: '<YOUR_EMAIL_ID>',
-        //     subject: subject,
-        //     message_html: message,
-        // }
-        // emailjs.send(
-        //     'gmail',
-        //     'template_XXXXXXXX',
-        //     templateParams,
-        //     'user_XXXXXXXXXXXXXXXXXXXX'
-        // )
-        // this.resetForm()
+
+    static sender = 'sender@example.com';
+
+    handleSubmit(event) {
+        event.preventDefault();
+
+        const {
+            REACT_APP_EMAILJS_RECEIVER: REACT_APP_EMAILJS_RECEIVER,
+            REACT_APP_EMAILJS_TEMPLATEID: REACT_APP_EMAILJS_TEMPLATEID,
+            REACT_APP_EMAILJS_USERID: REACT_APP_EMAILJS_USERID,
+        } = this.props.env;
+
+        this.sendFeedback(
+            REACT_APP_EMAILJS_TEMPLATEID,
+            this.sender,
+            REACT_APP_EMAILJS_RECEIVER,
+            this.state.message,
+            REACT_APP_EMAILJS_USERID
+        );
+
+        this.setState({
+            formSubmitted: true
+        });
     }
+
+    // Note: this is using default_service, which will map to whatever
+    // default email provider you've set in your EmailJS account.
+    sendFeedback(templateId, senderEmail, receiverEmail, message, user) {
+
+        emailjs.send('SendUsingGmail', 'template_9Tp2JIIg', {
+            senderEmail,
+            receiverEmail,
+            message
+        },
+            'user_XbsklnvsbFKZ5daZvtGX9'
+        )
+            .then(res => {
+                this.setState({
+                    formEmailSent: true
+                });
+            })
+            // Handle errors here however you like
+            .catch(err => console.error('Failed to send feedback. Error: ', err));
+    }
+
+
+
     handleChange = (param, e) => {
         this.setState({ [param]: e.target.value })
     }

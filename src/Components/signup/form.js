@@ -7,7 +7,8 @@ export default class SignUpForm extends React.Component {
 		name: '',
 		email: '',
 		password: '',
-		passwordConf: ''
+		passwordConf: '',
+		errMessage: null
 	};
 
 
@@ -29,14 +30,15 @@ export default class SignUpForm extends React.Component {
 			password: this.state.password,
 		}
 		try {
-			await userService.signup(payload);
+			await userService.signup(payload)
 			// Let <App> know a user has signed up!
 			this.props.handleSignupOrLogin();
 			// Successfully signed up - show GamePage
 			this.props.closeModal()
 		} catch (err) {
 			// Invalid user data (probably duplicate email)
-			this.props.updateMessage(err.message);
+			this.setState({ errMessage: err.message })
+			// this.props.updateMessage(err.message);
 		}
 	}
 
@@ -46,8 +48,9 @@ export default class SignUpForm extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<header className="header-footer">Sign Up</header>
+			<div >
+				<header className="header-footer" style={{ color: 'rebeccapurple', fontSize: 'x-large' }}>Sign Up</header>
+				{this.state.errMessage ? <p style={{ color: 'red' }}>{this.state.errMessage}</p> : ''}
 				<form className="form-horizontal" onSubmit={this.handleSubmit} >
 					<div className="form-group">
 						<div className="col-sm-12">

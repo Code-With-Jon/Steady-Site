@@ -60,7 +60,7 @@ export default class CoupleBikeAnimation extends React.Component {
 					<Row>
 						<Col size={9}>
 						<div>
-							<Game />
+							<Game handleAddGameAnswers={this.props.handleAddGameAnswers} />
 						</div>
 						</Col>
 						<Col size={3}>

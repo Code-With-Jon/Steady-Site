@@ -108,17 +108,26 @@ export default class Navigation extends React.Component {
 					<div style={{ marginRight: "30px" }}>
 						<Menu>
 							<Dropdown text={this.props.user ? this.props.user.name : "Account"} pointing className="link item">
+
 								<Dropdown.Menu>
-									<Dropdown.Item onClick={() => this.handleSignUpClick()}>
-										Sign Up
-									</Dropdown.Item>
-									<Dropdown.Item onClick={() => this.handleLogInClick()}>
-										Log In
-									</Dropdown.Item>
-									<Dropdown.Item onClick={() => this.handleLogOutClick()}>
-										Log Out
-									</Dropdown.Item>
+
+									{this.props.user ?
+										<Dropdown.Item onClick={() => this.handleLogOutClick()}>
+											Log Out
+											</Dropdown.Item>
+										:
+										<>
+											<Dropdown.Item onClick={() => this.handleSignUpClick()}>
+												Sign Up
+											</Dropdown.Item>
+											<Dropdown.Item onClick={() => this.handleLogInClick()}>
+												Log In
+											</Dropdown.Item>
+										</>
+									}
+
 								</Dropdown.Menu>
+
 							</Dropdown>
 						</Menu>
 					</div>

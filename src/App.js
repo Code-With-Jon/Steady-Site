@@ -9,8 +9,10 @@ import SignUpForm from "./Components/signup/form";
 import userService from './utils/userService';
 import tokenService from './utils/tokenService';
 import * as subscriberAPI from '../src/services/subscriber-api';
+import * as gameAPI from '../src/services/game-api';
 import { Widget, addResponseMessage } from 'react-chat-widget';
 import 'react-chat-widget/lib/styles.css';
+import { env } from './config/mail'
 
 
 class App extends React.Component {
@@ -21,15 +23,28 @@ class App extends React.Component {
 			navSelection: null,
 			user: userService.getUser(),
 			subscribers: [],
-			currentSub: false
+			currentSub: false,
+			name: undefined,
+			messages: [],
+			selectedAnswers: [],
 		};
 	}
 
-	componentDidMount() {
-		addResponseMessage("Welcome to Steady! ... How can we assist you?");
+	async componentDidMount() {
+		addResponseMessage("Welcome to Steady! ... Can I have your first name please?");
+
+		const selectedAnswers = await gameAPI.getAll();
+		this.setState({ selectedAnswers });
 	}
 
-
+	handleAddGameAnswers = async newGameData => {
+		const newGame = await gameAPI.create(newGameData)
+		this.setState(state => ({
+			selectedAnswers: [...state.selectedAnswers, newGame]
+		}))
+		// Using cb to wait for state to update before rerouting
+		//RUN ALGO TO COMPARE USERS ANSWERS AGAINST OTHER USERS
+	}
 
 	handleAddSubscriber = async newSubData => {
 		const newSub = await subscriberAPI.create(newSubData);
@@ -71,12 +86,22 @@ class App extends React.Component {
 
 
 	handleNewUserMessage = (newMessage) => {
-		console.log(`New message incoming! ${newMessage}`);
+		let mess = this.state.messages
+		mess.push(newMessage)
 		// Now send the message throught the backend API
-		console.log(`${newMessage.includes('terms')}`)
 		newMessage = newMessage.toLowerCase()
-		console.log(newMessage)
-		if (newMessage.includes('terms')) {
+		let arr = mess[0].split(' ')
+		let name = arr[arr.length - 1]
+		if (name.includes('.')) {
+			name = name.split('.')
+			name = name.join('')
+		}
+		this.setState({ name })
+		this.setState({ messages: mess })
+		if (newMessage.includes(name)) {
+			addResponseMessage(`Hi ${name}, how can I assist you?`)
+		}
+		else if (newMessage.includes('terms')) {
 			addResponseMessage('Please check out our terms of use here: ')
 		}
 		else if (newMessage.includes('rape')) {
@@ -109,13 +134,13 @@ class App extends React.Component {
 		else if (newMessage.includes('hey')) {
 			addResponseMessage('Hey there! ... What can we help you with?')
 		}
-		else if (newMessage.includes('Thank you')) {
+		else if (newMessage.includes('thank you')) {
 			addResponseMessage('My pleasure! Is there anything else I can assist you with?')
 		}
-		else if (newMessage.includes('Thanks')) {
+		else if (newMessage.includes('thanks!')) {
 			addResponseMessage('My pleasure! Is there anything else I can assist you with?')
 		}
-		else if (newMessage.includes('No thanks')) {
+		else if (newMessage.includes('no thanks')) {
 			addResponseMessage('Alright, have a great day!')
 		}
 		else if (newMessage.includes('goodbye')) {
@@ -126,6 +151,12 @@ class App extends React.Component {
 		}
 		else if (newMessage.includes('to whom it may')) {
 			addResponseMessage('What can we help you with?')
+		}
+		else if (newMessage.includes('info')) {
+			addResponseMessage('No problem! What info would you like?')
+		}
+		else if (newMessage.includes('launch')) {
+			addResponseMessage('Soon! Please fill out the form above the Apple and Google Store download links to stay updated.')
 		}
 		else if (newMessage.includes('partner')) {
 			addResponseMessage('Were excited to explore all partnership oppertunities. Please reach out to datesteady@gmail.com')
@@ -168,6 +199,8 @@ class App extends React.Component {
 										user={this.state.user}
 										handleAddSubscriber={this.handleAddSubscriber}
 										currentSub={this.currentSub}
+										handleAddGameAnswers={this.handleAddGameAnswers}
+										env={env}
 									/>
 									<Widget
 										handleNewUserMessage={this.handleNewUserMessage}

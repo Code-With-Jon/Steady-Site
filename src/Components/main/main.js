@@ -29,7 +29,7 @@ export default class MainHeader extends React.Component {
 		return (
 			<>
 				{/* Modal */}
-				<section id="Home">
+				<section id="Home" >
 					{/* <h1>Sign Up</h1>
                 <input type="button" value="Open" onClick={() => this.openModal()} /> */}
 					<Modal
@@ -38,7 +38,8 @@ export default class MainHeader extends React.Component {
 						height="300"
 						effect="fadeInUp"
 						onClickAway={() => this.props.closeModal()}
-					>z
+
+					>
 						<div>
 							{this.props.navSelection === "Sign Up" ? (
 								<SignUpForm handleSignupOrLogin={this.props.handleSignupOrLogin} closeModal={this.props.closeModal} updateMessage={this.updateMessage} />
@@ -95,11 +96,11 @@ export default class MainHeader extends React.Component {
 					}}
 				></div>
 
-				<CoupleBikeAnimation />
+				<CoupleBikeAnimation handleAddGameAnswers={this.props.handleAddGameAnswers} />
 				<Features />
 				<ScreenShots />
 				<Team />
-				<Contact />
+				<Contact env={this.props.env} />
 				<Footer />
 			</>
 		);
