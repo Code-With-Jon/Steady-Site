@@ -16,18 +16,14 @@ export default class ContactForm extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        const {
-            REACT_APP_EMAILJS_RECEIVER: REACT_APP_EMAILJS_RECEIVER,
-            REACT_APP_EMAILJS_TEMPLATEID: REACT_APP_EMAILJS_TEMPLATEID,
-            REACT_APP_EMAILJS_USERID: REACT_APP_EMAILJS_USERID,
-        } = this.props.env;
 
         this.sendFeedback(
-            REACT_APP_EMAILJS_TEMPLATEID,
-            this.sender,
-            REACT_APP_EMAILJS_RECEIVER,
+            this.props.env.REACT_APP_EMAILJS_TEMPLATEID,
+            this.state.email,
+            this.props.env.REACT_APP_EMAILJS_RECEIVER,
             this.state.message,
-            REACT_APP_EMAILJS_USERID
+            this.state.subject,
+            this.props.env.REACT_APP_EMAILJS_USERID
         );
 
         this.setState({
@@ -37,16 +33,21 @@ export default class ContactForm extends React.Component {
 
     // Note: this is using default_service, which will map to whatever
     // default email provider you've set in your EmailJS account.
-    sendFeedback(templateId, senderEmail, receiverEmail, message, user) {
-
-        emailjs.send('SendUsingGmail', 'template_9Tp2JIIg', {
+    sendFeedback(templateId, senderEmail, receiverEmail, message, subject, user) {
+        console.log('message', message)
+        console.log('this.state.message', this.state.message)
+        // emailjs.send('SendUsingGmail', 'template_9Tp2JIIg', {
+        emailjs.send('SendUsingGmail', this.props.env.REACT_APP_EMAILJS_TEMPLATEID, {
             senderEmail,
             receiverEmail,
-            message
+            message,
+            subject
+
         },
-            'user_XbsklnvsbFKZ5daZvtGX9'
+            user
         )
             .then(res => {
+                console.log(res)
                 this.setState({
                     formEmailSent: true
                 });
