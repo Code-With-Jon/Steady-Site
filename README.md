@@ -1,5 +1,8 @@
 # Welcome to Steady!
 [Go Steady](https://steady-site.herokuapp.com/)
+
+
+
 Steady was developed as a supporting resource for the Steady social mobile dating app. When browsing through the Steady site, you will find additional information, subscribe to updates form, screenshots, contact form, and a short fun interactive compatibility game. The compatibility game simply compares the current users answers to all previous submissions to find an average of how compatible the current use is to all other users who have played the game. 
 
 
