@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Divider, Form, Grid, Segment } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 export default class Footer extends React.Component {
 
 
@@ -12,7 +13,7 @@ export default class Footer extends React.Component {
                         <Grid columns={2} relaxed='very' stackable style={{ letterSpacing: 2 }}>
                             <Grid.Column>
                                 <div style={{ marginTop: '30px', marginLeft: '45%' }}>
-                                    <a href='' style={{ margin: '10px', textDecoration: 'underline' }}><span style={{ marginRight: '3px' }}>Terms</span> <span style={{ marginRight: '3px' }}>of</span>   <span>Use</span></a>
+                                    <Link to="/Terms" style={{ margin: '10px', textDecoration: 'underline' }}><span style={{ marginRight: '3px' }}>Terms</span> <span style={{ marginRight: '3px' }}>of</span>   <span>Use</span></Link>
                                     <a href='' style={{ margin: '10px', textDecoration: 'underline' }}>FAQ</a>
                                     <a href='' style={{ margin: '10px', textDecoration: 'underline' }}>Careers</a>
                                     <a href='' style={{ margin: '10px', textDecoration: 'underline' }}>Press/PR</a>

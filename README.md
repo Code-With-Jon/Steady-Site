@@ -1,69 +1,29 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Welcome to Steady!
+[Go Steady](https://steady-site.herokuapp.com/)
+Steady was developed as a supporting resource for the Steady social mobile dating app. When browsing through the Steady site, you will find additional information, subscribe to updates form, screenshots, contact form, and a short fun interactive compatibility game. The compatibility game simply compares the current users answers to all previous submissions to find an average of how compatible the current use is to all other users who have played the game. 
 
-## Available Scripts
 
-In the project directory, you can run:
+## Wireframe
+![Subscribe to Updates](https://i.imgur.com/ydrmGda.png)
 
-### `npm start`
+![Authentication](https://i.imgur.com/PYPvGXe.png)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Snippet of Game and Features of Steady](https://i.imgur.com/H4FGljI.png)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+![Snippet of Screenshots, Team, and Contact Form](https://i.imgur.com/hhiEyED.png)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technology
 
-### `npm run build`
+![Express](https://buttercms.com/static/images/tech_banners/ExpressJS.png)
+![React](https://quintagroup.com/cms/js/js-image/react.js-logo.png/@@images/a9bf22bd-373a-4fae-a900-c22fd12c87c7.png)
+![MongoDb](https://webassets.mongodb.com/_com_assets/cms/MongoDB_Logo_FullColorBlack_RGB-4td3yuxzjs.png)
+![Node JS](https://cdn.pixabay.com/photo/2015/04/23/17/41/node-js-736399_960_720.png)
+## Future Features
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ 1. Admin Panel
+ 2. Mimic sign up process to mobile app sign up process
+ 3. Script sync between databases
+ 4. Live chat with admin users
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# Steady-Site
+> **Note:** We  **Steady** will be launching soon!.

@@ -89,19 +89,19 @@ export default class Navigation extends React.Component {
 							marginRight: "10px"
 						}}
 					>
-						<Link smooth className="nav-link" to="#Home">
+						<Link smooth className="nav-link" to="/#Home">
 							Home
 						</Link>
-						<Link smooth className="nav-link" to="#Features">
+						<Link smooth className="nav-link" to="/#Features">
 							Features
 						</Link>
-						<Link smooth className="nav-link" to="#Screenshots">
+						<Link smooth className="nav-link" to="/#Screenshots">
 							Screenshots
 						</Link>
-						<Link smooth className="nav-link" to="#Team">
+						<Link smooth className="nav-link" to="/#Team">
 							Team
 						</Link>
-						<Link smooth className="nav-link" to="#Contact" style={{ marginRight: '25px' }}>
+						<Link smooth className="nav-link" to="/#Contact" style={{ marginRight: '25px' }}>
 							Contact
 						</Link>
 					</div>

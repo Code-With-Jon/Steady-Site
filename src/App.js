@@ -13,6 +13,8 @@ import * as gameAPI from '../src/services/game-api';
 import { Widget, addResponseMessage } from 'react-chat-widget';
 import 'react-chat-widget/lib/styles.css';
 import { env } from './config/mail'
+import TermsOfUse from "./Components/termsOfUse/termsOfUse";
+import Footer from "./Components/footer/footer";
 
 
 class App extends React.Component {
@@ -213,12 +215,13 @@ class App extends React.Component {
 					/>
 					<Route
 						exact
-						path="/SignUp"
+						path="/Terms"
 						render={() => {
 							return (
 								<div>
 									<Nav />
-									<SignUpForm />
+									<TermsOfUse />
+									<Footer />
 								</div>
 							);
 						}}
